@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require 'nmax'
+
+unless ARGV.size == 1
+  puts 'Wrong number of arguments passed. Expect one.'
+  exit
+end
+
+numbers_count = ARGV.shift.to_i
+if numbers_count < 1
+  puts 'Wrong argument passed. Expect integer greater than zero.'
+  exit
+end
+
+if STDIN.tty? || STDIN.closed?
+  puts 'No redirect. E.g. "cat file.txt | nmax 10"'
+  exit
+end
+
+lines = ARGF.readlines
+puts Nmax::Finder.new(lines, numbers_count).call

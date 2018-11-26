@@ -1,0 +1,11 @@
+Metrics/LineLength:
+  Max: 100
+
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'nmax.gemspec'
+    - vendor/bundle/**/*
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
